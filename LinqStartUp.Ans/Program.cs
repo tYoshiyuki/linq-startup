@@ -62,8 +62,8 @@ namespace LinqStartUp.Ans
             // Lesson06: 重複のない呪文の一覧をつくる
             Console.WriteLine("Lesson06");
             charas = Generator.GetCharacters();
-            var ans06 = charas.SelectMany(_ => _.Magics)
-                .Distinct();
+            var ans06 = charas.Where(_ => _.Magics != null)
+                .SelectMany(_ => _.Magics).Distinct();
 
             foreach (var a in ans06)
             {
@@ -130,5 +130,4 @@ namespace LinqStartUp.Ans
     {
         Warrior, Monk, Magician, Priest
     }
-}
 }
